@@ -14,6 +14,9 @@ gem "sprockets-rails"
 # Use pgsql as the database for Active Record
 gem "pg", "~> 1.2", ">= 1.2.3"
 
+# Use tailwind as CSS
+gem "tailwindcss-rails", "~> 2.6"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
