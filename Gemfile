@@ -71,3 +71,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+gem 'omniauth' # Core OmniAuth gem
+gem 'omniauth-google-oauth2' # Google OAuth2 provider
+gem 'omniauth-github' # GitHub provider
