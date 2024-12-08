@@ -71,3 +71,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+
+gem "redis", "~> 5.3"
+
+gem "sidekiq", "~> 7.3"

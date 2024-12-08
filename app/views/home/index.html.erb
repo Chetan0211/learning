@@ -1,2 +1,9 @@
 <h1>Hello</h1>
 <p>This is a home index page.</p>
+<p><%= @user.email %></p>
+<% if @user.id == 1%>
+  <%= link_to "ping user", ping_user_path(user_id: 2), data: { turbo: false } %>
+<% else %>
+  <%= link_to "ping user", ping_user_path(user_id: 1), data: { turbo: false } %>
+<% end %>
+<%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }%>
