@@ -16,6 +16,7 @@ users.forEach(element => {
     },
   
     received(data) {
+      alert(`received UserActiveChannel: ${JSON.stringify(data)}`)
       console.log(`received UserActiveChannel: ${JSON.stringify(data)}`);
       // Called when there's incoming data on the websocket for this channel
     }
