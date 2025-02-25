@@ -1,16 +1,20 @@
-<h1>Hello</h1>
-<p>This is a home index page.</p>
-<%= form_with url: root_path, method: :get, local: true do |form| %>
-  <%= form.text_field :search, value: params[:search] || "" %>
-  <%= form.submit "Search",class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"%>
-<% end %>
-
-<% if @results.present? %>
-  <h2>Search Results:</h2>
-  <% @results.results.each do |result| %>
-    <p><b><%= result.name %>: </b><%= result.item_count %></p>
+<div data-controller="home">
+  <h1>Hello</h1>
+  <p>This is a home index page.</p>
+  <%= form_with url: root_path, method: :get, local: true do |form| %>
+    <div class="relative w-1/2 mx-auto mt-10">
+      <%= form.text_field :search, value: params[:search] || "", data: { action: "focus->home#search_focused_and_input blur->home#search_blur input->home#search_focused_and_input" } %>
+      <div id="search_autocomplete" class="absolute w-full bg-white border border-gray-200 shadow-md mt-1 rounded-md hidden"></div>
+    </div>
+    <%= form.submit "Search",class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"%>
   <% end %>
-<% else %>
-  <p>Search something to show here</p>
-<% end %>
 
+  <% if @results.present? %>
+    <h2>Search Results:</h2>
+    <% @results.results.each do |result| %>
+      <p><b><%= result.name %>: </b><%= result.item_count %></p>
+    <% end %>
+  <% else %>
+    <p>Search something to show here</p>
+  <% end %>
+</div>
