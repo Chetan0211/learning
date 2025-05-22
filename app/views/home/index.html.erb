@@ -7,3 +7,89 @@
   <div class="w-1/4 p-4 bg-pink-500">Item 6</div>
   <p class="absolute">data</p>
 </div>
+<%# <div class="w-full grid grid-flow-col auto-cols-max gap-4 overflow-y-auto h-72 px-56">
+  <div class="flex w-full h-72">
+    <div class="bg-blue-500 w-full"></div>
+  </div>
+  <div class="flex w-full h-72 ">
+    <div class="bg-red-500 w-full"></div>
+  </div>
+  <div class="flex w-full h-72 ">
+    <div class="bg-green-500 w-full"></div>
+  </div>
+  <div class="flex w-full h-72 ">
+    <div class="bg-purple-500 w-full"></div>
+  </div>
+</div> %>
+<div class="container mx-auto max-w-3xl">
+  <div id="carousel" class="relative rounded-lg shadow-2xl overflow-hidden">
+    <div id="carouselTrack" class="flex transition-transform duration-1 ease-in-out">
+      <div class="carousel-item w-full flex-shrink-0 bg-rose-500 aspect-[16/9]">
+        <div class="flex items-center justify-center h-full">
+          <span class="text-white text-3xl font-semibold">Rose</span>
+        </div>
+      </div>
+      <div class="carousel-item w-full flex-shrink-0 bg-sky-500 aspect-[16/9]">
+        <div class="flex items-center justify-center h-full">
+          <span class="text-white text-3xl font-semibold">Sky</span>
+        </div>
+      </div>
+      <div class="carousel-item w-full flex-shrink-0 bg-emerald-500 aspect-[16/9]">
+        <div class="flex items-center justify-center h-full">
+          <span class="text-white text-3xl font-semibold">Emerald</span>
+        </div>
+      </div>
+      <div class="carousel-item w-full flex-shrink-0 bg-amber-500 aspect-[16/9]">
+        <div class="flex items-center justify-center h-full">
+          <span class="text-white text-3xl font-semibold">Amber</span>
+        </div>
+      </div>
+      <div class="carousel-item w-full flex-shrink-0 bg-violet-500 aspect-[16/9]">
+        <div class="flex items-center justify-center h-full">
+          <span class="text-white text-3xl font-semibold">Violet</span>
+        </div>
+      </div>
+    </div>
+    <button id="prevBtn" class="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-60 transition-opacity focus:outline-none z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+    <button id="nextBtn" class="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-60 transition-opacity focus:outline-none z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+  </div>
+</div>
+<script>
+  const carouselTrack = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const totalItems = 5;
+
+  let currentIndex = 0;
+
+  function updateCarousel(){
+    carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+
+
+  function prevSlide(){
+    if(currentIndex - 1 >= 0){
+      currentIndex -= 1;
+      updateCarousel();
+    }
+  }
+
+  function nextSlide(){
+    if(currentIndex + 1 < totalItems)
+    {
+      currentIndex += 1;
+      updateCarousel();
+    }
+  }
+</script>
